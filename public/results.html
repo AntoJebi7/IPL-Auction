@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IDHU AUCTION MADAM</title>
+    <link rel="icon" href="logo.jpeg">
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            font-family: 'Trebuchet MS', sans-serif;
+            color: #ffffff;
+            background-image: url('statium image.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            overflow: hidden;
+        }
+        header {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 10;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            color: #FFD700;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
+            margin: 0;
+            text-align: center;
+            flex-grow: 1;
+        }
+
+        .logo-left, .logo-right {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 2px solid #FFD700;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 140px;
+            font-size: 2em;
+            color: #FFD700;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+        }
+
+        .rankings-table {
+            width: 80%;
+            max-width: 1000px;
+            margin: 30px auto;
+            border-collapse: collapse;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .rankings-table th, .rankings-table td {
+            padding: 15px;
+            text-align: center;
+            font-size: 1.1em;
+            color: #333;
+        }
+
+        .rankings-table th {
+            background-color: #FFD700;
+            color: #000;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .rankings-table tr:nth-child(even) {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .rankings-table tr:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .rankings-table td {
+            background-color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+
+            h1 {
+                font-size: 1.5em;
+                margin-top: 140px;
+            }
+
+            .rankings-table {
+                width: 90%;
+                margin: 20px auto;
+            }
+
+            .rankings-table th, .rankings-table td {
+                padding: 10px;
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="logo.jpeg" alt="Left Logo" class="logo-left">
+        <h1>இது AUCTION மேடம்</h1>
+        <img src="logo.jpeg" alt="Right Logo" class="logo-right">
+    </header>
+
+    <h1>Team Rankings</h1>
+
+    <table class="rankings-table">
+        <thead>
+            <tr>
+                <th>Rank</th>
+                <th>Team Name</th>
+                <th>Points</th>
+            </tr>
+        </thead>
+        <tbody id="rankingsTableBody">
+            <!-- Dynamic rows will be added here -->
+        </tbody>
+    </table>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Retrieve the top teams' data from sessionStorage
+            const topTeams = JSON.parse(sessionStorage.getItem('topTeams'));
+
+            if (topTeams && topTeams.length > 0) {
+                const rankingsTableBody = document.getElementById('rankingsTableBody');
+                
+                // Loop through topTeams and insert rows into the table
+                topTeams.forEach((team, index) => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${index + 1}</td>
+                        <td>${team.name}</td>
+                        <td>${team.points}</td>
+                    `;
+                    rankingsTableBody.appendChild(row);
+                });
+            } else {
+                console.error('No team data available.');
+            }
+        });
+    </script>
+
+</body>
+</html>

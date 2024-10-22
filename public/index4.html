@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>IDHU AUCTION MADAM</title>
+  <link rel="icon" href="logo.jpeg">
+  <style>
+    body {
+      margin: 0;
+      overflow: auto; 
+      font-family: 'Trebuchet MS', sans-serif; 
+      color: #ffffff;
+      background-image: url('statium image.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: repeat;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    
+    .table-header-marquee {
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center; 
+      position: sticky;
+      top: 0; 
+      z-index: 15;
+    }
+
+    .marquee-content {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      max-width: 1200px; 
+    }
+
+    .marquee-content img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 0 10px;
+    }
+
+    .marquee-content h1 {
+      flex: 1;
+      font-size: 2em;
+      font-weight: bold;
+      text-align: center;
+      color: #FFD700;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+      white-space: nowrap; 
+    }
+
+  
+    .player-table-container {
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: rgba(0, 0, 0, 0.5); 
+      overflow: hidden;
+    }
+
+    table {
+      width: 90%;
+      border-collapse: collapse;
+      background-image: url('table-background.jpg'); 
+      background-size: cover;
+      background-position: center;
+      color: #ffffff;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.7);
+      position: relative;
+    }
+
+    th, td {
+      padding: 15px;
+      text-align: center;
+      border-bottom: 1px solid #FFD700;
+    }
+
+    th {
+      background-color: rgba(0, 0, 0, 0.7);
+      font-size: 1.2em;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    }
+
+    tr:hover {
+      background-color: rgba(255, 215, 0, 0.2); 
+    }
+
+    img.player-image {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #FFD700;
+    }
+
+   
+    .table-buttons {
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+      padding: 10px 0;
+    }
+
+    .table-buttons button {
+      padding: 10px 20px;
+      font-size: 1em;
+      border: 2px solid #FFD700; 
+      border-radius: 5px;
+      cursor: pointer;
+      background-color: transparent; 
+      color: #FFD700;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .table-buttons button:hover {
+      background-color: rgba(255, 215, 0, 0.2); 
+      color: #ffffff; 
+    }
+
+
+    .container {
+      display: flex;
+    
+      margin-top: 80px;
+    }
+    .left {
+      width: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .left img {
+      width: 450px;
+      height: 450px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid #FFD700;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.7);
+    }
+    .right {
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 40px;
+      text-align: left;
+    }
+    .right h1 {
+      font-size: 3em;
+      margin-bottom: 20px;
+      color: #FFD700;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    }
+    .right p {
+      font-size: 1.5em;
+      margin: 10px 0;
+    }
+    .highlight {
+      color: #FFD700;
+    }
+
+  
+    @media (max-width: 768px) {
+      th, td {
+        padding: 10px;
+        font-size: 0.9em;
+      }
+      img.player-image {
+        width: 70px;
+        height: 70px;
+      }
+      .table-buttons button {
+        padding: 8px 16px;
+        font-size: 0.9em;
+      }
+      .container {
+        flex-direction: column;
+        height: auto;
+        margin-top: 50px;
+      }
+      .left {
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+      }
+      .left img {
+        width: 300px;
+        height: 300px;
+        margin-top: 70px;
+      }
+      .right {
+        width: 100%;
+        padding: 20px;
+        text-align: center;
+      }
+      .right h1 {
+        font-size: 2.5em;
+      }
+      .right p {
+        font-size: 1.2em;
+      }
+    }
+    @media (max-width: 400px) {
+      th, td {
+        padding: 5px;
+        font-size: 0.8em;
+      }
+      img.player-image {
+        width: 50px;
+        height: 50px;
+      }
+      .table-buttons button {
+        padding: 6px 12px;
+        font-size: 0.8em;
+      }
+      .container {
+        flex-direction: column;
+        height: auto;
+        margin-top: 50px;
+      }
+      .left {
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+      }
+      .left img {
+        width: 250px;
+        height: 250px;
+        margin-top: 70px;
+      }
+      .right {
+        width: 100%;
+        padding: 20px;
+        text-align: center;
+      }
+      .right h1 {
+        font-size: 2.5em;
+      }
+      .right p {
+        font-size: 1.2em;
+      }
+    }
+  </style>
+</head>
+<body>
+  
+  <div class="table-header-marquee">
+    <div class="marquee-content">
+      <img src="logo.jpeg" alt="Left Logo">
+      <h1>MarQuee Players</h1>
+      <img src="logo.jpeg" alt="Right Logo">
+    </div>
+  </div>
+
+  <div class="container" id="playerContainer">
+
+  </div>
+  
+  <div class="player-table-container">
+    <table id="playerTable">
+      <thead>
+        <tr>
+          <th>Player Image</th>
+          <th>Player Name</th>
+          <th>Nationality</th>
+          <th>Base Price</th>
+          <th>Current Prize</th> 
+          <th>Previous Team</th>
+          <th>Bid By</th>
+        </tr>
+      </thead>
+      <tbody>
+      
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="7"> 
+            <div class="table-buttons">
+              <button id="startButtonFooter">Start</button>
+              <button id="skipButtonFooter">Skip</button>
+            </div>
+          </td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+
+  <script>
+    let currentIndex = 0;
+    let players = [];
+
+    async function loadPlayerDetails() {
+      try {
+        const response = await fetch('/api/players');
+        if (!response.ok) throw new Error('Network response was not ok');
+        players = await response.json();
+        if (players.length > 0) {
+          displayPlayers(players);
+        }else if(players.length > O){
+          displayPlayer(players)
+        }
+      } catch (error) {
+        console.error('Error fetching players:', error);
+      }
+    }
+
+    function fetchPlayer(player) {
+      const playerContainer = document.getElementById('playerContainer');
+      playerContainer.innerHTML = `
+        <div class="left">
+          <img src="${player.image}" alt="${player.name} Image">
+        </div>
+        <div class="right">
+          <h1>${player.name}</h1>
+          <p><strong>Base Price:</strong> <span class="highlight">${player.basePrice}</span></p>
+          <p><strong>Role:</strong> <span class="highlight">${player.role}</span></p>
+          <p><strong>Nationality:</strong> <span class="highlight">${player.nationality}</span></p>
+          <p><strong>Previous Team:</strong> <span class="highlight">${player.previousTeam}</span></p>
+        </div>`;
+    }
+
+    function displayPlayers(players) {
+      const tableBody = document.querySelector('tbody');
+      tableBody.innerHTML = '';
+
+      players.forEach(player => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+          <td><img src="${player.image}" class="player-image" alt="${player.name}"></td>
+          <td>${player.name}</td>
+          <td>${player.nationality}</td>
+          <td>${player.basePrice}</td>
+          <td>${player.currentPrice || 'N/A'}</td>
+          <td>${player.previousTeam}</td>
+          <td>${player.bidby || 'N/A'}</td>`;
+        tableBody.appendChild(row);
+      });
+    }
+
+    document.getElementById('startButtonFooter').addEventListener('click', () => {
+      if (players.length > 0) {
+        currentIndex = 0; 
+        fetchPlayer(players[currentIndex]);
+      }
+    });
+
+    document.getElementById('skipButtonFooter').addEventListener('click', () => {
+      if (players.length > 0) {
+        currentIndex = (currentIndex + 1) % players.length; 
+        displayPlayers(players);
+      }
+    });
+
+    loadPlayerDetails();
+  </script>
+
+  </script>
+</body>
+</html>

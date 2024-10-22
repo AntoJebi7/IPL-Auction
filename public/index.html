@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IPL Auction Madoom</title>
+    <link rel="icon" href="logo.jpeg">
+    <style>
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: 'Trebuchet MS', sans-serif;
+            color: #ffffff;
+            background-image: url('statium image.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            overflow: hidden;
+        }
+
+        header {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 10px; 
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 10;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            color: #FFD700;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
+            margin: 0;
+            text-align: center;
+            flex-grow: 1;
+        }
+
+        .logo-left, .logo-right {
+            width: 70px; 
+            height: 70px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 2px solid #FFD700;
+        }
+
+        .logo-right{
+            margin-right: 20px;
+        }
+
+        .hero {
+            text-align: center;
+            min-height: calc(100vh - 80px); 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding-bottom: 20px;
+            
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin: 0;
+            color: #FFD700;
+        }
+
+        .hero p {
+            font-size: 24px;
+            margin: 20px 0;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 10px 20px; 
+            background: #ff9800;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .cta-button:hover {
+            background: #e68900;
+        }
+
+        footer {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            text-align: center;
+            position: relative;
+            width: 100%;
+            color: #ffffff;
+            font-size: 14px;
+
+            padding-top: 20px;
+        }
+
+    
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.2em;
+            }
+
+            .logo-left, .logo-right {
+                width: 60px;
+                height: 60px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero p {
+                font-size: 18px;
+            }
+
+            .cta-button {
+                padding: 8px 15px; 
+                font-size: 18px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.2em;
+            }
+
+            .logo-left, .logo-right {
+                width: 50px;
+                height: 50px;
+            }
+
+            .hero h1 {
+                font-size: 24px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .cta-button {
+                padding: 6px 10px; 
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="logo.jpeg" alt="Left Logo" class="logo-left">
+        <h1>இது AUCTION மேடம்</h1>
+        <img src="logo.jpeg" alt="Right Logo" class="logo-right">
+    </header>
+
+    <section class="hero">
+        <h1>Join the IPL Auction and Build Your Dream Team!</h1>
+        <p>With a 100 crore budget, bid on top players, use RTM cards, and outsmart your competitors!</p>
+        <a href="javascript:void(0);" class="cta-button" onclick="navigateToIndex2()">Get Started</a>
+    </section>
+
+    <footer>
+        &copy; 2024 IPL Auction Madoom. All rights reserved.
+    </footer>
+
+    <script>
+        function navigateToIndex2() {
+            window.location.href = 'index1.html';
+        }
+    </script>
+</body>
+</html>

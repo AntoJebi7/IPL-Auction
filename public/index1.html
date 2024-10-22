@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IDHU AUCTION MADAM</title>
+    <link rel="icon" href="logo.jpeg">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: url('statium image.jpg') no-repeat center center;
+            background-size: cover;
+            color: #ffd700;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            width: 400px;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 10px;
+            box-shadow: 0px 0px 30px #f5d142;
+            text-align: center;
+        }
+
+        .container h1 {
+            font-size: 36px;
+            color: #ffd700;
+            margin-bottom: 20px;
+        }
+
+        .form input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ffd700;
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.1);
+            color: #f5d142;
+            font-size: 18px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background: #ffd700;
+            color: #000;
+            border: none;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-top: 20px;
+            border-radius: 5px;
+        }
+
+        .submit-btn:hover {
+            background: #e0c341;
+            color: #fff;
+        }
+
+        .logo {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 20px;
+            border-radius: 50%;
+            border: 2px solid #ffd700;
+            background-color: #fff;
+        }
+
+        .team-logo {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 20px;
+            border-radius: 50%;
+            border: 2px solid #ffd700;
+            background-color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="step1">
+        <img src="logo.jpeg" alt="Logo" class="logo"> 
+        <h1>Enter Your ID</h1>
+        <div class="form">
+            <input type="text" id="id-input" placeholder="Enter your 7-digit ID" maxlength="7">
+            <button class="submit-btn" onclick="checkID()">Submit</button>
+        </div>
+    </div>
+
+    <div class="container" id="step2" style="display: none;">
+        <img id="team-logo" alt="Team Logo" class="team-logo">
+        <h1><span id="team-name"></span></h1>
+        <div class="form">
+            <input type="number" id="team-size" placeholder="Enter team size (2-5)" min="2" max="5">
+            <input type="text" id="id-college" placeholder="Enter Your College">
+            <button class="submit-btn" onclick="submitTeamSize()">Submit</button>
+        </div>
+    </div>
+
+    <div class="container" id="step3" style="display: none;">
+        <img id="team-logo2" alt="Team Logo" class="team-logo"> 
+        <h1>Enter Team Members</h1>
+        <div class="form" id="team-members-form"></div>
+    </div>
+
+    <script>
+        const teams = {
+            '3520483': { name: 'Chennai Super Kings', logo: 'logo/csklogo.png' },
+            '5818789': { name: 'Mumbai Indians', logo: 'logo/milogo.png' },
+            '3035819': { name: 'Royal Challengers Bangalore', logo: 'logo/rcblogo.png' },
+            '5925017': { name: 'Delhi Capitals', logo: 'logo/dclogo.png' },
+            '6595717': { name: 'Kolkata Knight Riders', logo: 'logo/kkrlogo.png' },
+            '2867229': { name: 'Punjab Kings', logo: 'logo/pbkslogo.png' },
+            '2951956': { name: 'Sunrisers Hyderabad', logo: 'logo/srhlogo.png' },
+            '5752761': { name: 'Rajasthan Royals', logo: 'logo/rrlogo.png' },
+            '3867282': { name: 'Lucknow Super Giants', logo: 'logo/lsglogo.png' },
+            '6285628': { name: 'Gujarat Titans', logo: 'logo/gtlogo.png' }
+        };
+
+        function checkID() {
+    
+            const id = document.getElementById('id-input').value.trim();
+            if (id.length === 7 && teams[id]) {
+                document.getElementById('team-name').textContent = teams[id].name;
+                document.getElementById('team-logo').src = teams[id].logo;
+                document.getElementById('step1').style.display = 'none';
+                document.getElementById('step2').style.display = 'block';
+            }else if (id === '0192004') {
+        window.location.href = 'index2.html';
+    }
+            
+            else {
+                alert('Invalid ID. Please enter a valid 7-digit ID.');
+            }
+        }
+
+        function submitTeamSize() {
+
+            const teamSize = parseInt(document.getElementById('team-size').value);
+            if (teamSize >= 2 && teamSize <= 5) {
+                generateTeamMembers(teamSize);
+                document.getElementById('team-logo2').src = document.getElementById('team-logo').src;
+                document.getElementById('step2').style.display = 'none';
+                document.getElementById('step3').style.display = 'block';
+            } else {
+                alert('Team size must be between 2 and 5.');
+            }
+        }
+
+        function generateTeamMembers(teamSize) {
+            const teamMembersForm = document.getElementById('team-members-form');
+            teamMembersForm.innerHTML = ''; 
+
+            for (let i = 1; i <= teamSize; i++) {
+                const inputField = document.createElement('input');
+                inputField.type = 'text';
+                inputField.placeholder = `Enter team member ${i} name`;
+                inputField.classList.add('team-member');
+                teamMembersForm.appendChild(inputField);
+            }
+
+            const submitMembersButton = document.createElement('button');
+            submitMembersButton.classList.add('submit-btn');
+            submitMembersButton.innerText = 'Submit Team Members';
+            submitMembersButton.onclick = submitTeamMembers;
+            teamMembersForm.appendChild(submitMembersButton);
+        }
+
+        
+        function submitTeamMembers() {
+    const memberInputs = document.querySelectorAll('.team-member');
+    const members = [];
+
+    memberInputs.forEach(input => {
+        members.push(input.value.trim());
+    });
+
+    if (members.length > 0) {
+        const data = {
+            id: document.getElementById('id-input').value,
+            teamName: document.getElementById('team-name').textContent,
+            college:document.getElementById('id-college').value,
+            teamSize: document.getElementById('team-size').value,
+            members: members
+        };
+
+        fetch('/send-email', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert('Team members submitted and email sent!');
+                window.location.href = 'index5.html';
+            } else {
+                alert('Failed to send email.');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    } else {
+        alert('Please enter team members.');
+    }
+}
+
+    </script>
+</body>
+</html>

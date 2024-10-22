@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IDHU AUCTION MADAM</title>
+  <link rel="icon" href="logo.jpeg">
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      height: 100vh;
+      font-family: 'Trebuchet MS', sans-serif; 
+      color: #ffffff;
+      background-image: url('statium image.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    header {
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 20px;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  top: 0;
+  z-index: 10;
+}
+
+header h1 {
+  font-size: 2.2em;
+  color: #FFD700; 
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  flex-grow: 1;
+  margin-left: 80px;
+
+}
+
+.logo-left{
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  border-radius: 50%;
+}
+
+.logos-container {
+  display: flex;
+  margin-right: 20px;  
+  gap: 10px;
+}
+
+.logo-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  margin: 0 5px;
+}
+
+.logo-item img {
+  width: 60px; 
+  height: 60px;
+  object-fit: cover;
+  border-radius: 50%; 
+  border: 2px solid white;
+}
+
+
+
+.logo-item img:hover {
+  transform: scale(1.1);
+}
+
+.badge {
+  margin-top: 5px;
+  background-color: black;
+  color: white;
+  padding: 3px 7px;
+  border-radius: 5px;
+  font-size: 0.8em;
+  text-align: center;
+}
+    .container {
+      display: flex;
+    
+      margin-top: 80px;
+    }
+    .left {
+      width: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .left img {
+      width: 450px;
+      height: 450px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid #FFD700;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.7);
+    }
+    .right {
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 40px;
+      text-align: left;
+    }
+    .right h1 {
+      font-size: 3em;
+      margin-bottom: 20px;
+      color: #FFD700;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    }
+    .right p {
+      font-size: 1.5em;
+      margin: 10px 0;
+    }
+    .highlight {
+      color: #FFD700;
+    }
+
+    .player-card {
+      display: none; 
+      background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.5)), url('card.webp'); 
+      background-size: cover;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.8);
+      position: absolute;
+      right: 20px; 
+      top: 100px; 
+      z-index: 20;
+      color: #FFD700;
+      text-align: center;
+      margin-top: 20%;
+      transition: transform 0.3s ease; 
+    }
+
+    .player-card:hover {
+      transform: scale(1.05); 
+    }
+
+    .player-image {
+      width: 120px;
+      height: 120px; 
+      border-radius: 50%; 
+      object-fit: cover; 
+      margin-bottom: 10px; 
+      border: 3px solid #FFD700;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); 
+    }
+
+    #cardPlayerName {
+      font-size: 1.8em; 
+      margin-bottom: 10px;
+      text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8); 
+    }
+
+    #cardCurrentBid, #cardPreviousTeam{
+      font-size: 1.2em; 
+      margin: 5px 0;
+    }
+
+
+    #cardCurrentBid.increase {
+      animation: glow 0.5s ease-in-out forwards;
+    }
+
+    @keyframes glow {
+      0% {
+        text-shadow: 0 0 5px #FFD700, 0 0 10px #FFD700, 0 0 15px #FFD700;
+      }
+      100% {
+        text-shadow: 0 0 10px #FFD700, 0 0 20px #FFD700, 0 0 30px #FFD700;
+      }
+    }
+    #cardPoints {
+    display: inline; 
+}
+
+#finishButton {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10%;
+}
+
+#finishButton:hover {
+    background-color: #0056b3;
+}
+
+#submitButton {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10%;
+}
+
+#submitButton:hover {
+    background-color: #0056b3;
+}
+
+    @media (max-width: 768px) {
+      header {
+        padding: 0%;
+        background: none;
+      }
+      h1 {
+        text-shadow: none;
+        font-size: 1.0em;
+      }
+      .container {
+        flex-direction: column;
+        height: auto;
+        margin-top: 50px;
+      }
+      .left {
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+      }
+      .left img {
+        width: 300px;
+        height: 300px;
+        margin-top: 70px;
+      }
+      .right {
+        width: 100%;
+        padding: 20px;
+        text-align: center;
+      }
+      .right h1 {
+        font-size: 2.5em;
+      }
+      .right p {
+        font-size: 1.2em;
+      }
+    }
+    @media (max-width: 400px) {
+      header {
+        padding: 0%;
+        background: none;
+      }
+      h1 {
+        text-shadow: none;
+        font-size: 1.0em;
+      }
+      .container {
+        flex-direction: column;
+        height: auto;
+        margin-top: 50px;
+      }
+      .left {
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+      }
+      .left img {
+        width: 250px;
+        height: 250px;
+        margin-top: 70px;
+      }
+      .right {
+        width: 100%;
+        padding: 20px;
+        text-align: center;
+      }
+      .right h1 {
+        font-size: 2.5em;
+      }
+      .right p {
+        font-size: 1.2em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="logo.jpeg" alt="Left Logo" class="logo-left">
+    <h1>இது AUCTION மேடம்</h1>
+
+    <div class="logos-container">
+        
+      </div>
+  </header>
+  <div class="container" id="playerContainer">
+
+  </div>
+
+  <button id="finishButton" style="display: none; position: absolute; top: 10px; right: 10px;">Finish</button>
+  <div id="topTeams"></div>
+
+  <div class="player-card" id="playerCard">
+    <img id="cardPlayerImage" src="" alt="Player Image" class="player-image">
+    <h2 id="cardPlayerName"></h2>
+    <p>Current Bid: <span id="cardCurrentBid"></span></p>
+    <p>Previous Team: <span id="cardPreviousTeam"></span></p>
+    <p><span id="cardPoints"></span></p>
+  </div>
+
+ 
+
+  <script>
+    let currentIndex = 0;
+    let players = [];
+
+    
+    async function loadPlayerDetails() {
+      try {
+        const response = await fetch('/api/players');
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        const allPlayers = await response.json();
+
+        const urlParams = new URLSearchParams(window.location.search);
+        
+
+        const stage = urlParams.get('stage') || 1;
+
+        if (stage === '1') {
+      
+        players = allPlayers.filter(player => player.basePrice === "₹2 Crore");
+        }else if(stage === '2'){
+        players = allPlayers.filter(player => 
+        (player.basePrice === "₹1 Crore" || player.basePrice === "₹1.5 Crore") && player.role.toLowerCase() === "batsman"
+      );
+        }else if(stage === '3'){
+            players = allPlayers.filter(player => 
+            (player.basePrice === "₹1 Crore" || player.basePrice === "₹1.5 Crore") && player.role.toLowerCase() === "wicket keeper"
+      );
+        }else if(stage === '4'){
+            players = allPlayers.filter(player => 
+            (player.basePrice === "₹1 Crore" || player.basePrice === "₹1.5 Crore") && 
+            player.role.toLowerCase() === "pace bowler"
+          );
+        }else if(stage === '5'){
+            players = allPlayers.filter(player => 
+          (player.basePrice === "₹1 Crore" || player.basePrice === "₹1.5 Crore") && 
+          (player.role.toLowerCase()=== "all-rounder|spin" || player.role.toLowerCase() === "all-rounder|pace")
+          );
+        }else if(stage ==='6'){
+            players = allPlayers.filter(player => 
+            (player.basePrice === "₹1 Crore" || player.basePrice === "₹1.5 Crore") && 
+            player.role.toLowerCase() === "spin bowler"
+          );
+        }else if(stage === '7'){
+            players = allPlayers.filter(player => 
+             (player.basePrice === "₹50 Lakhs" || player.basePrice === "₹75 Lakhs" || player.basePrice === "₹20 Lakhs"|| player.basePrice === "₹70 Lakhs" || player.basePrice === "₹30 Lakhs" ||player.basePrice === "₹80 Lakhs") && 
+            player.role.toLowerCase() === "batsman"
+          );
+        }else if(stage ==='8'){
+            players = allPlayers.filter(player => 
+             (player.basePrice === "₹50 Lakhs" || player.basePrice === "₹75 Lakhs" || player.basePrice === "₹20 Lakhs"|| player.basePrice === "₹70 Lakhs" || player.basePrice === "₹30 Lakhs" ||player.basePrice === "₹80 Lakhs") && 
+            player.role.toLowerCase() === "wicket keeper"
+          );
+        }else if(stage === '9'){
+            players = allPlayers.filter(player => 
+             (player.basePrice === "₹50 Lakhs" || player.basePrice === "₹75 Lakhs" || player.basePrice === "₹20 Lakhs"|| player.basePrice === "₹70 Lakhs" || player.basePrice === "₹30 Lakhs" ||player.basePrice === "₹80 Lakhs") && 
+            (player.role.toLowerCase()=== "all-rounders|spin" || player.role.toLowerCase() === "all-rounder|pace")
+          );
+        }else if(stage === '10'){
+            players = allPlayers.filter(player => 
+             (player.basePrice === "₹50 Lakhs" || player.basePrice === "₹75 Lakhs" || player.basePrice === "₹20 Lakhs"|| player.basePrice === "₹70 Lakhs" || player.basePrice === "₹30 Lakhs" ||player.basePrice === "₹80 Lakhs") && 
+            player.role.toLowerCase() === "pace bowler"
+          );
+        }else if(stage ==='11'){
+            players = allPlayers.filter(player => 
+             (player.basePrice === "₹50 Lakhs" || player.basePrice === "₹75 Lakhs" || player.basePrice === "₹20 Lakhs"|| player.basePrice === "₹70 Lakhs" || player.basePrice === "₹30 Lakhs" ||player.basePrice === "₹80 Lakhs") && 
+            player.role.toLowerCase() === "spin bowler"
+          );
+        }
+
+        if (players.length > 0) {
+          displayPlayer(players[currentIndex]);
+        } else {
+            const playerContainer = document.getElementById('playerContainer');
+          playerContainer.innerHTML = 
+            `<div class="right" style="width: 100%; text-align: center;">
+              <h1>No Players Found</h1>
+              <p>There are no players with a base price of <span class="highlight"></span>.</p>
+            </div>`
+          ;
+        }
+      } catch (error) {
+        console.error('Error fetching players:', error);
+       
+        const playerContainer = document.getElementById('playerContainer');
+        playerContainer.innerHTML = 
+          `<div class="right" style="width: 100%; text-align: center;">
+            <h1>Error Loading Players</h1>
+            <p>There was an error fetching player data. Please try again later.</p>
+          </div>`
+        ;
+      }
+    }
+
+   
+    function displayPlayer(player) {
+      const playerContainer = document.getElementById('playerContainer');
+      playerContainer.innerHTML = ` 
+        <div class="left">
+          <img src="${player.image}" alt="${player.name} Image"> 
+        </div>
+        <div class="right">
+          <h1>${player.name}</h1>
+          <p><strong>Base Price:</strong> <span class="highlight">${player.basePrice}</span></p>
+          <p><strong>Role:</strong> <span class="highlight">${player.role}</span></p>
+          <p><strong>Nationality:</strong> <span class="highlight">${player.nationality}</span></p>
+          <p><strong>Previous Team:</strong> <span class="highlight">${player.previousTeam}</span></p>
+          <p style= "display:none"><strong>Points:</strong> <span class="highlight">${player.points}</span></p>
+        </div>`;
+    }
+
+    function showPlayerCard(index) {
+      currentIndex = index;
+      const player = players[index];
+      const playerCard = document.getElementById('playerCard');
+      document.getElementById('cardPlayerName').innerText = player.name;
+      document.getElementById('cardCurrentBid').innerText = player.basePrice; 
+      document.getElementById('cardPreviousTeam').innerText = player.previousTeam;
+      document.getElementById('cardPlayerImage').src = player.image;
+      document.getElementById('cardPoints').innerText = player.points || 'N/A';
+      playerCard.style.display = 'block'; 
+    }
+
+    let teamBids = {
+  
+};
+
+
+let teamSelected = true;
+
+document.addEventListener('keydown', async function(event) {
+    let teamName = '';
+    let currentBid = 0;
+    let points = 0;
+    switch (event.key) {
+        case 'c':
+            teamName = 'Chennai Super Kings';
+            break;
+        case 'm':
+            teamName = 'Mumbai Indians';
+            break;
+        case 'k':
+            teamName = 'Kolkata Knight Riders';
+            break;
+        case 'd':
+            teamName = 'Delhi Capitals';
+            break;
+        case 'r':
+            teamName = 'Royal Challengers Bangaluru';
+            break;
+        case 'h':
+            teamName = 'Sunrisers Hyderabad';
+            break;
+        case 'l':
+            teamName = 'Lucknow Super Giants';
+            break;
+        case 'p':
+            teamName = 'Punjab Kings';
+            break;
+        case 'g':
+            teamName = 'Gujarat Titans';
+            break;
+        case 'q':
+            teamName = 'Rajasthan Royals';
+            break;
+        case 'u':
+            teamName = 'Unsold'; 
+            return; 
+        default:
+            return;
+    }
+
+    if (teamName) {
+        teamSelected = false;
+    }
+    const currentBidElement = document.getElementById("cardCurrentBid");
+    const currentBidText = currentBidElement.innerText;
+    currentBid = parseFloat(currentBidText.replace(/[^0-9.]/g, '')); 
+    const player=players[currentIndex]
+
+    if (currentBidText.includes('Lakhs')) {
+        currentBid = currentBid / 100;
+    }
+
+    const pointsElement = document.getElementById('cardPoints');
+    points = parseFloat(pointsElement.innerText) || 0;
+
+    if (!teamName || isNaN(currentBid)) {
+        console.error('Team name or current bid is invalid');
+        return;
+    }
+
+    console.log(`Selected team: ${teamName}, Current bid: ${currentBid} Cr, Player points: ${points}`);
+    try {
+        const response = await fetch('/api/teams', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+        const teams = await response.json();
+        const team = teams.find(t => t.name === teamName);
+
+        if (team) {
+          console.log(`${team.name} initial budget: ${team.budget} Cr, Updated points: ${team.points}`);
+            if (team.budget >= currentBid) {
+                const newBudget = team.budget - currentBid;
+                const newPoints = team.points + points;
+                console.log(`${team.name} new budget: ${newBudget} Cr`);
+                console.log(`updated points: ${newPoints}`)
+                const teamBadge = document.querySelector(`#${teamName.replace(/\s+/g, '')}-badge`);
+                if (teamBadge) {
+                    if (newBudget >= 1) {
+                        teamBadge.innerText = `${newBudget.toFixed(2)} Cr`;
+                    } else {
+                        teamBadge.innerText = `${(newBudget * 100).toFixed(2)} Lakhs`;
+                    }
+                }
+                const errorMessage = validatePlayerRoleLimits(player, team);
+                if (errorMessage) {
+                    console.error(errorMessage);
+                    return;
+                }
+
+                await fetch('/api/teams/update-team-budget', {
+                    method: 'PATCH',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        name: team.name,
+                        budget: newBudget,
+                        points: newPoints, 
+                        selectedRoles: {
+                            batsmen: team.selectedRoles.batsmen,
+                            wicketKeeper: team.selectedRoles.wicketKeeper,
+                            allRounders: team.selectedRoles.allRounders,
+                            paceBowlers: team.selectedRoles.paceBowlers,
+                            spinners: team.selectedRoles.spinners,
+                            foreignPlayers: team.selectedRoles.foreignPlayers,
+                            totalPlayers: team.selectedRoles.totalPlayers + 1
+                        }
+                    })
+                });
+            } else {
+                console.error('Not enough budget to place this bid');
+            }
+        } else {
+            console.error('Team not found');
+        }
+    } catch (error) {
+        console.error('Error updating team budget and points:', error);
+    }
+});
+
+function validatePlayerRoleLimits(player, team) {
+    switch (player.role.toLowerCase()) {
+        case 'wicket keeper':
+            if (team.selectedRoles.wicketKeeper >= 1) {
+                return "Select at least 1 Wicketkeeper.";
+            }
+            break;
+        case 'batsman':
+        case 'all-rounder|spin':
+        case 'wicket keeper':
+        case 'all-rounder|pace':
+            if (team.selectedRoles.batsmen + team.selectedRoles.wicketKeeper + team.selectedRoles.allRounders >= 5) {
+                return "Select a maximum of 5 Batsmen/Wicketkeepers/All-rounders.";
+            }
+            break;
+        case 'pace bowler':
+        case 'all-rounder|pace':
+            if (team.selectedRoles.paceBowlers >= 3) {
+                return "Select at least 3 Pace Bowlers.";
+            }
+            break;
+        case 'spin bowler':
+        case 'all-rounder|spin':
+            if (team.selectedRoles.spinners >= 1) {
+                return "Cannot select more than 1 Spin Bowler.";
+            }
+            break;
+
+        default:
+            return null;
+    }
+
+    if (player.nationality !== 'India' && team.selectedRoles.foreignPlayers >= 4) {
+        return "Cannot select more than 4 Foreign players.";
+    }
+
+    if (player.nationality !== 'India') {
+        team.selectedRoles.foreignPlayers++;
+    }
+
+    return null;
+}
+
+document.addEventListener('keydown', function(event) {
+    switch (event.key) {
+        case 'f':
+            document.getElementById('finishButton').style.display = 'block';
+            break;
+        default:
+            return;
+    }
+});
+
+document.getElementById('finishButton').addEventListener('click', async function () {
+            try {
+                const response = await fetch('/api/teams', {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                });
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+
+                const teams = await response.json();
+
+                if (teams.length > 0) {
+                    const sortedTeams = teams.sort((a, b) => b.points - a.points);
+                    const topTenTeams = sortedTeams.slice(0, 10);
+                    document.getElementById('playerContainer').style.display = 'none';
+
+                    sessionStorage.setItem('topTeams', JSON.stringify(topTenTeams));
+
+                    window.location.href = 'results.html'; 
+                } else {
+                    console.error('No teams available to display.');
+                }
+            } catch (error) {
+                console.error('Error fetching team data:', error);
+            }
+        });
+
+async function placeBid(playerIndex, bidAmount, teamName) {
+        const player = players[playerIndex];
+        if (!player) {
+            console.error('Player not found for bidding.');
+            return;
+        }
+        try {
+             const response = await fetch(`/api/players/${player._id}/bid`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    bidAmount: bidAmount,
+                    teamName: teamName
+                })
+            });
+
+            const data = await response.json();
+
+            if (response.ok) {
+                console.log(data.message);
+                player.currentPrice = data.player.currentPrice;
+                player.bidBy = data.player.bidby;
+                        displayPlayer(player);
+              } else {
+                console.error('Error placing bid:', data.message);
+                alert(`Error placing bid: ${data.message}`);
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            alert('An error occurred while placing the bid.');
+        }
+    }
+
+    function updateBid() {
+    let currentBidElement = document.getElementById("cardCurrentBid");
+    let currentBidText = currentBidElement.innerText;
+
+    let currentBid = parseFloat(currentBidText.replace(/[^0-9.]/g, '')) || 0;
+    let newBid;
+    if (currentBidText.includes("Lakh")) {
+        currentBid = currentBid / 100; 
+    }
+
+    if (currentBid == 0.2) {
+        newBid = currentBid + 0.3; 
+    } else if (currentBid == 0.3) {
+        newBid = currentBid + 0.2; 
+    } else if (currentBid == 0.5) {
+        newBid = currentBid + 0.25; 
+    } else if (currentBid == 0.75) {
+        newBid = currentBid + 0.25; 
+    } else if (currentBid == 0.7) {
+        newBid = currentBid + 0.3; 
+    } else if (currentBid == 0.8) {
+        newBid = currentBid + 0.2; 
+    } else if (currentBid <= 10.5 ) {
+        newBid = currentBid + 0.5; 
+    } else if (currentBid <= 20.0) {
+        newBid = currentBid + 1.0; 
+    }  else {
+        newBid = currentBid + 2.0; 
+    }
+
+    if (newBid > 100) {
+        newBid = 100; 
+    }
+
+    let displayBid;
+    if (newBid < 1) {
+      displayBid = (newBid * 100).toFixed(0) + " Lakhs"; 
+    } else {
+        displayBid = newBid.toFixed(2) + " Crore";
+    }
+    currentBidElement.innerText = displayBid;
+    currentBidElement.classList.add("increase");
+    setTimeout(() => {
+        currentBidElement.classList.remove("increase");
+    }, 500);
+
+    document.getElementById('cardCurrentBid').innerHTML=displayBid;
+    const playerId = players[currentIndex]
+  
+}
+
+function showNextPlayer() {
+    if (currentIndex < players.length - 1) {
+        currentIndex++;
+    } else {
+        currentIndex = 0; 
+    }
+    displayPlayer(players[currentIndex]);
+    hidePlayerCard(); 
+    
+}
+
+function showPreviousPlayer() {
+    if (currentIndex > 0) {
+        currentIndex--;
+    } else {
+        currentIndex = players.length - 1; 
+    }
+    displayPlayer(players[currentIndex]);
+    hidePlayerCard(); 
+}
+
+function hidePlayerCard() {
+    const playerCard = document.getElementById('playerCard');
+    playerCard.style.display = 'none'; 
+}
+
+document.addEventListener('keydown', (event) => {
+    switch (event.code) {
+        case 'Enter':
+        case 'ArrowRight':
+            showNextPlayer();
+            break;
+        case 'Backspace':
+        case 'ArrowLeft':
+            showPreviousPlayer();
+            break;
+    }
+});
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 's' && teamSelected) { 
+        const playerCard = document.getElementById('playerCard');
+        const player = players[currentIndex]; 
+
+        if (player) {
+          document.getElementById('cardPlayerName').innerText = player.name;
+          document.getElementById('cardCurrentBid').innerText = player.basePrice; 
+          document.getElementById('cardPreviousTeam').innerText = player.previousTeam;
+          document.getElementById('cardPlayerImage').src = player.image; 
+          document.getElementById('cardPoints').innerText = player.points || 'N/A'; 
+          document.getElementById('cardPoints').style.display = 'none'
+          playerCard.style.display = playerCard.style.display === 'none' || playerCard.style.display === '' ? 'block' : 'none';
+          teamSelected = true;
+        }
+      }else if (event.key === '+' && teamSelected) {
+        updateBid(); 
+        teamSelected = true;
+    }
+    });
+
+    async function loadTeams() {
+    const container = document.querySelector(".logos-container");
+    container.innerHTML = '';
+
+    try {
+        const response = await fetch('/api/teams'); 
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        const teams = await response.json();
+
+        teams.forEach((team) => {
+            const teamDiv = document.createElement("div");
+            teamDiv.classList.add("logo-item");
+
+            const logoImg = document.createElement("img");
+            logoImg.src = `logo/${team.logo}`;  
+            logoImg.alt = `${team.name} Logo`;
+
+            const budgetBadge = document.createElement("div");
+            budgetBadge.classList.add("badge");
+            budgetBadge.id = `${team.name.replace(/\s+/g, '')}-badge`;  
+            budgetBadge.innerText = `${team.budget} Cr`;
+
+            teamDiv.appendChild(logoImg);
+            teamDiv.appendChild(budgetBadge);
+
+            container.appendChild(teamDiv);
+        });
+    } catch (error) {
+        console.error('Error loading teams:', error);
+    }
+}
+
+window.onload = loadTeams;
+
+window.addEventListener('DOMContentLoaded', loadPlayerDetails);
+  </script>
+</body>
+</html> 
